@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>My Portfolio</title>
+        <style>
+            body {
+                font-family: 'Arial', sans-serif;
+                margin: 0;
+                padding: 0;
+                background: #121212;
+                color: #f5f5f5;
+                scroll-behavior: smooth;
+            }
+            header {
+                background: #1e1e1e;
+                padding: 20px 0;
+                border-bottom: 1px solid #333;
+                position: fixed;
+                width: 100%;
+                top: 0;
+                z-index: 1000;
+                box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            }
+            header .container {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                width: 80%;
+                margin: auto;
+            }
+            header a {
+                color: #f5f5f5;
+                text-decoration: none;
+                text-transform: uppercase;
+                font-size: 16px;
+                padding: 0 15px;
+            }
+            header ul {
+                padding: 0;
+                list-style: none;
+            }
+            header li {
+                display: inline;
+            }
+            header #branding {
+                font-size: 24px;
+                color: #f0c419;
+            }
+            #showcase {
+                height: 100vh;
+                width: 100%;
+                background: url('pic4.png') no-repeat center center/cover;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                text-align: center;
+                color:rgb(79, 151, 6);
+                text-shadow: 2px 2px 3px  #fbfaf5;
+                padding: 0 20px;
+            }
+            #showcase h1 {
+                font-size: 55px;
+                margin: 0;
+                animation: fadeInDown 2s ease-in-out;
+            }
+            #showcase p {
+                font-size: 20px;
+                color: #0b0b0b;
+                animation: fadeInUp 2s ease-in-out;
+                text-shadow: 2px 2px 3px  #f6f5f1;
+            }
+            #about h2,h3 {
+                color: rgb(161, 240, 24);
+
+            }
+            #about h4 {
+                color: rgb(214, 24, 214);
+
+            }
+            section {
+                padding: 60px 20px;
+            }
+            .content {
+                padding: 20px;
+                background: #1e1e1e;
+                margin-bottom: 20px;
+                border-radius: 10px;
+                box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+                max-width: 800px;
+                margin: 20px auto;
+            }
+            .content img {
+                border-radius: 50%;
+                width: 250px;
+                height: 250px;
+                display: block;
+                margin: 0 auto;
+                border: 5px solid #f0c419;
+            }
+            .content h2 {
+                text-align: center;
+                font-size: 28px;
+                margin-bottom: 10px;
+                color: #f0c419;
+            }
+            .skills-contact-wrapper {
+                display: flex;
+                justify-content: space-between;
+                align-items: flex-start;
+                flex-wrap: wrap;
+            }
+            .skills, .contact {
+                width: 45%;
+                padding: 20px;
+                border-radius: 10px;
+                margin-top: 20px;
+                margin: auto; /* Center align */
+            }
+            .skills {
+                background: #282c34;
+                border: 2px solid #0beb25;
+            }
+            .contact {
+                background: #1e1e1e;
+                border: 2px solid #007bff;
+            }
+            .skills ul, .contact ul {
+                list-style: none;
+                padding: 0;
+            }
+            .skills ul li, .contact ul li {
+                background: #333;
+                color: #f5f5f5;
+                padding: 10px 20px;
+                margin: 5px 0;
+                border-radius: 5px;
+                text-align: center;
+                transition: background 0.3s ease-in-out, transform 0.3s ease-in-out;
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            .skills ul li.show, .contact ul li.show {
+                opacity: 1;
+                transform: translateY(0);
+                transition: opacity 0.6s ease-in-out, transform 0.6s ease-in-out;
+            }
+            .skills ul li:hover, .contact ul li:hover {
+                background: #f0c419;
+                transform: scale(1.1);
+                color: #333;
+            }
+            .download {
+                text-align: center;
+                margin-top: 20px;
+                opacity: 0;
+                animation: fadeIn 2s ease-in 2s forwards;
+            }
+            .download a {
+                background: #f0c419;
+                color: #333;
+                padding: 10px 20px;
+                border-radius: 5px;
+                text-decoration: none;
+                transition: background 0.3s ease-in-out;
+            }
+            .download a:hover {
+                background: #333;
+                color: #f0c419;
+                transform: scale(1.1);
+            }
+            .fade-in {
+                animation: fadeIn 2s ease-in forwards;
+                opacity: 0;
+            }
+            @keyframes fadeIn {
+                to {
+                    opacity: 1;
+                }
+            }
+            @keyframes fadeInDown {
+                from {
+                    opacity: 0;
+                    transform: translateY(-20px);
+                }
+                to {
+                    opacity: 1;
+                    transform: translateY(0);
+                }
+            }
+            @keyframes fadeInUp {
+                from {
+                    opacity: 0;
+                    transform: translateY(20px);
+                }
+                to {
+                    opacity: 1;
+                    transform: translateY(0);
+                }
+            }
+        </style>
+    </head>
+    <body>
+        <header>
+            <div class="container">
+                <div id="branding">My Portfolio</div>
+                <nav>
+                    <ul>
+                        <li><a href="#showcase">Home</a></li>
+                        <li><a href="#about">About</a></li>
+                        <li><a href="#skills">Skills</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </header>
+    
+        <section id="showcase">
+            <h1>Welcome to My Portfolio</h1>
+            <p>Discover my work, skills, and get in touch!</p>
+        </section>
+    
+        <section id="about" class="content fade-in">
+            <h2>About Me</h2>
+            <img src="pic.jpg" alt="Profile Picture">
+            <p>Hello! I'm Kiran Kumar Swain, a passionate Python developer skilled in various technologies. Welcome to my portfolio where you can learn more about my work and skills.</p>
+            <h3>Self intro :</h3>
+            <p>Hello, my name is Kiran Kumar Swain . I am from Odisha and currently residing in Bangalore. I completed my BCA in 2020 from the Regional College of Management and my MCA in 2023 from Trident Academy of Technology.
+                I've also completed courses in Python Full Stack Development and DevOps at JSpiders. I have hands-on experience with technologies like HTML, CSS, Python, Django, Docker, Kubernetes, Jenkins, and Git.
+                I am looking for opportunities to apply my skills in a challenging environment where I can contribute to innovative projects and grow professionally. I am passionate about technology and continuously strive to learn and adapt to new industry trends.
+                Thank you for considering my introduction. I look forward to discussing how I can contribute to your team.
+                </p>
+            <h3>Project: Small Pizza Shopping Website</h3> 
+            <h4>Overview</h4> 
+            <p>The Small Pizza Shopping Website is a web application I developed to facilitate online ordering for a local pizza shop. This project showcases my skills in Python, Django, SQL, HTML, and CSS, and includes essential features such as user authentication, menu display, shopping cart functionality, order management, and an admin panel for managing pizza items and orders.</p>  
+            <h4>Objectives</h4>
+            <p> 1. User Authentication: Implement secure user registration and login functionalities.<br>
+                2. Menu Display: Present a list of available pizzas with detailed information.<br>
+                3. Shopping Cart: Enable users to add pizzas to a cart, view the cart, and proceed to checkout.<br>
+                4. Order Management: Handle the entire order lifecycle, from placement to status tracking.<br>
+                5. Admin Panel: Provide an interface for administrators to manage pizza items and user orders.</p>
+            <h4>Technologies Used </h4>
+            <p>Python: Core programming language for server-side logic.
+               Django: Framework for building the backend and managing database operations.
+               SQL: Used for database management to store user, menu, and order information.
+                HTML: Provides the structure for the web pages.
+                CSS: Used for styling the web pages to enhance visual appeal and ensure responsiveness.</p>
+            <h4>Key Features</h4>
+            <h4>User Authentication:</h4>
+                <p>
+                1. Secure user registration and login with Django's authentication system.<br>
+                2. User profile management for updating personal information.
+            <h4>Menu Display:</h4>
+                <p>
+                1. Display pizzas with details such as name, description, price, and images.<br>
+                2. Filter pizzas by categories (e.g., Vegetarian, Non-Vegetarian).
+            <h4> Shopping Cart:</h4>
+                <p>
+                1. Users can add pizzas to their cart, update quantities, and remove items.</p>
+                2. View cart contents and proceed to checkout for order placement.
+            <h4>Order Management:</h4>
+                <p>
+               1.  Users can place orders and view their order history.<br>
+                2. Track order status from "Pending" to "Delivered".
+            <h4>Admin Panel:</h4>
+                <p>
+               1. Admins can add, update, and delete pizza items.<br>
+               2. Manage and update the status of user orders.
+               </p>
+        </section>
+    
+        <section id="skills" class="content fade-in">
+            <h2>Skills</h2>
+            <div class="skills">
+                <ul>
+                    <li>Python</li>
+                    <li>Django</li>
+                    <li>HTML</li>
+                    <li>CSS</li>
+                    <li>SQL</li>
+                    <li>Git, GitHub</li>
+                    <li>Shell Script</li>
+                    <li>Basic Linux</li>
+                </ul>
+            </div>
+        </section>
+    
+        <section id="contact" class="content fade-in">
+            <h2>Contact</h2>
+            <div class="contact">
+                <ul>
+                    <li>Email: <a href="mailto:kiranswain847@gmail.com">kiranswain847@gmail.com</a></li>
+                    <li>Phone: <a href="tel:+919348724530">+91 93487 24530</a></li>
+                    <li>LinkedIn: <a href="https://linkedin.com/in/kiran-kumar-swain934" target="_blank">linkedin.com/in/kiran-kumar-swain934</a></li>
+                    <li>GitHub: <a href="https://github.com/swainKiran" target="_blank">github.com/swainKiran</a></li>
+                </ul>
+                <div class="download">
+                    <a href="rr.pdf" download>Download My Resume</a>
+                </div>
+            </div>
+        </section>
+    
+        <script>
+            document.addEventListener('DOMContentLoaded', function() {
+                const options = {
+                    threshold: 0.1
+                };
+    
+                const observer = new IntersectionObserver(entries => {
+                    entries.forEach(entry => {
+                        if (entry.isIntersecting) {
+                            let delay = 0;
+                            entry.target.querySelectorAll('li').forEach((item, index) => {
+                                setTimeout(() => {
+                                    item.classList.add('show');
+                                }, delay);
+                                delay += 200;
+                            });
+                        }
+                    });
+                }, options);
+    
+                const skillSection = document.querySelector('.skills ul');
+                const contactSection = document.querySelector('.contact ul');
+                observer.observe(skillSection);
+                observer.observe(contactSection);
+            });
+        </script>
+    </body>
+    </html>
+    
